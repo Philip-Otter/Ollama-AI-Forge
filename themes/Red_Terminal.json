@@ -1,0 +1,27 @@
+{
+    "bg": "#000000",
+    "fg": "#FF0000",
+    "widget_bg": "#1a0000",
+    "select_bg": "#4d0000",
+    "button_bg": "#FF0000",
+    "button_fg": "#000000",
+    "button_accent_bg": [
+        "#FF0000",
+        "#FFFFFF"
+    ],
+    "bot_a_color": "#FF3333",
+    "bot_b_color": "#CC0000",
+    "system_color": "#800000",
+    "human_color": "#FFFFFF",
+    "code_bg": "#0d0000",
+    "code_fg": "#FFFFFF",
+    "success_fg": "#00FF00",
+    "error_fg": "#FFFF00",
+    "timestamp_color": "#800000",
+    "border_color": "#FF0000",
+    "chat_bg": "#100000",
+    "animation": {
+        "type": "scanline",
+        "color": "#FF0000"
+    }
+}
