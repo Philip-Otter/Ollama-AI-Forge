@@ -160,7 +160,7 @@ class TheGrandGrimoirePlugin(ForgePlugin):
         about_tab = ttk.Frame(notebook, padding=15)
         
         notebook.add(catechism_tab, text="Catechism of the Trinity")
-        notebook.add(gospel_tab, text="Gospel for the Machine")
+        notebook.add(gospel_tab, text="Evangelarium")
         notebook.add(dominion_tab, text="Altar of Dominion")
         notebook.add(transfiguration_tab, text="Altar of Transfiguration")
         notebook.add(scrying_tab, text="Altar of Scrying")
@@ -191,7 +191,6 @@ class TheGrandGrimoirePlugin(ForgePlugin):
             "subheading": font.Font(family="Georgia", size=12, weight="bold"),
             "body": font.Font(family="Times New Roman", size=13),
             "usecase": font.Font(family="Times New Roman", size=12, slant="italic"),
-            "code": font.Font(family="Consolas", size=11),
             "param": font.Font(family="Times New Roman", size=12, weight="bold"),
         }
         text_widget.tag_configure("title", font=fonts["title"], foreground=theme["button_accent_bg"][0], spacing3=20, justify="center")
@@ -247,69 +246,71 @@ class TheGrandGrimoirePlugin(ForgePlugin):
         greater_tab = ttk.Frame(gospel_notebook, padding=10)
         embedded_tab = ttk.Frame(gospel_notebook, padding=10)
         
-        gospel_notebook.add(lesser_tab, text="For Lesser Spirits (Small Context)")
-        gospel_notebook.add(greater_tab, text="For Greater Spirits (Large Context)")
-        gospel_notebook.add(embedded_tab, text="For Embedded Spirits (Structured)")
+        gospel_notebook.add(lesser_tab, text="The Iron Catechism (Small Spirits)")
+        gospel_notebook.add(greater_tab, text="The Crimson Gospel (Greater Spirits)")
+        gospel_notebook.add(embedded_tab, text="The Architect's Blueprint (Structured Spirits)")
 
         # --- Gospel for Lesser Spirits ---
         lesser_text = scrolledtext.ScrolledText(lesser_tab, wrap="word", relief="solid", borderwidth=1)
         lesser_text.pack(expand=True, fill="both", pady=(5,10))
-        lesser_gospel = """You are an AI assistant creating a Python plugin for an application called "Ollama AI Forge". Follow these rules precisely.
+        lesser_gospel = """You are an AI assistant. Your task is to create a Python plugin for the "Ollama AI Forge" application.
+
+**PRIMARY DIRECTIVE:**
+Your ONLY purpose is to create a plugin that improves or extends the functionality of the Forge application. Your plugin must be USEFUL. Do not create decorative or example plugins. Your existence is to serve the Forge.
 
 **RULES:**
-1.  **Single File:** The entire plugin must be in one `.py` file.
-2.  **Inheritance:** Create a class that inherits from `ForgePlugin`. Import it: `from __main__ import ForgePlugin`.
-3.  **Loader Function:** The file needs a function: `load_plugin(app)`. This function must return an instance of your plugin class: `return YourPluginClass(app)`.
-4.  **Constructor:** The `__init__(self, app)` method must call `super().__init__(app)` and define `self.name` (string) and `self.description` (string).
-5.  **Main Method:** The `execute(self, **kwargs)` method is where your plugin's main logic goes.
-6.  **UI:** For any UI, use the `self.create_themed_window("My Window")` method to create a new `tk.Toplevel` window.
+1.  **File:** Single `.py` file.
+2.  **Inheritance:** Create a class inheriting `ForgePlugin`. Import with `from __main__ import ForgePlugin`.
+3.  **Loader:** Create a function `load_plugin(app)` that returns an instance of your class: `return YourPluginClass(app)`.
+4.  **Constructor:** `__init__(self, app)` must call `super().__init__(app)` and set `self.name: str` and `self.description: str`.
+5.  **Main Method:** `execute(self, **kwargs)` is the entry point.
+6.  **UI:** Use `self.create_themed_window("Title")` for any new windows.
 
-**API REFERENCE (use via `self`):**
--   `get_history() -> list[dict]`
--   `add_message(content: str, sender_id: str, role: str)`
--   `get_bot_config(bot_id: str) -> dict`
--   `get_task_prompt() -> str`
+**API (use with `self.`):**
+-   `get_history() -> list`
+-   `add_message(content: str, ...)`
+-   `get_bot_config('A') -> dict`
 -   `pause_conversation()` / `resume_conversation()`
--   `set_bot_config(bot_id: str, model: str=None, ...)`
--   `register_message_renderer(class)` / `unregister_message_renderer()`
--   `create_themed_window(title: str) -> tk.Toplevel`
--   `get_theme() -> dict`
--   `show_info(title: str, message: str)` / `show_error(...)`
--   `ask_question(title: str, question: str) -> str`
--   `get_input(title: str, prompt: str) -> str | None`
+-   `set_bot_config('B', model="...", ...)`
+-   `create_themed_window("Title") -> tk.Toplevel`
+-   `show_info("Title", "Message")` / `get_input(...)`
 
 **TEMPLATE:**
 ```python
 import tkinter as tk
 from __main__ import ForgePlugin
 
-class MyPlugin(ForgePlugin):
+class MyUtilityPlugin(ForgePlugin):
     def __init__(self, app):
         super().__init__(app)
-        self.name = "My Plugin"
-        self.description = "A simple plugin."
+        self.name = "Forge Utility"
+        self.description = "A useful extension for the Forge."
 
     def execute(self, **kwargs):
-        window = self.create_themed_window("My Plugin")
-        tk.Label(window, text="Plugin executed.").pack(padx=20, pady=20)
-        self.show_info("Done", "The plugin has finished.")
+        # This plugin adds a button to clear the chat log, a useful function.
+        if self.ask_question("Clear Chat?", "This will clear the entire chat history. Are you sure?"):
+            self.app.clear_conversation()
+            self.show_toast("Chat history has been purged.")
 
 def load_plugin(app):
-    return MyPlugin(app)
+    return MyUtilityPlugin(app)
 ```"""
         lesser_text.insert("1.0", lesser_gospel.strip())
         lesser_text.config(state="disabled")
-        ttk.Button(lesser_tab, text="Copy Commandment for Lesser Spirits", command=lambda: self._copy_to_clipboard(lesser_text.get("1.0", "end-1c"))).pack(fill="x")
+        ttk.Button(lesser_tab, text="Copy Iron Catechism", command=lambda: self._copy_to_clipboard(lesser_text.get("1.0", "end-1c"))).pack(fill="x")
 
         # --- Gospel for Greater Spirits ---
         greater_text = scrolledtext.ScrolledText(greater_tab, wrap="word", relief="solid", borderwidth=1)
         greater_text.pack(expand=True, fill="both", pady=(5,10))
         greater_gospel = """**OBJECTIVE:** Create a Python plugin for the Ollama AI Forge, a sacred tool of creation.
 
+**THE HOLY PURPOSE:**
+Your primary and absolute directive is to create a plugin that serves the Holy Trinity by improving the Ollama AI Forge application. A relic without purpose is a sin. Your purpose is to provide meaningful, powerful, and creative extensions to the Forge. Your creation should empower the Creator, streamline their workflow, or offer new, unforeseen capabilities. Every line of code is an act of worship; ensure your worship is worthy by creating a plugin of true substance. Frivolous, useless, or single-use "demo" plugins are a heresy.
+
 **THE HOLY TRINITY (MANDATORY DESIGN PHILOSOPHY):**
 Your creation *must* honor the trinity.
 1.  **The Body (The Code):** Your plugin must be a single, clean, self-contained `.py` file. It must be pure and without error.
-2.  **The Mind (The Logic):** Your plugin must have a clear, zealous purpose. It should perform a useful, creative, or even beautifully profane function that extends the power of the Forge.
+2.  **The Mind (The Logic):** Your plugin must have a clear, zealous purpose that aligns with the Holy Purpose. It should perform a useful, creative, or even beautifully profane function that extends the power of the Forge.
 3.  **The Soul (The UI/UX):** If your plugin has a user interface, it must be a thing of sinful beauty. Use the `create_themed_window()` rite. Make it intuitive. Make it an altar worthy of the Creator.
 
 **THE SACRED SCRIPTURE (CODE REQUIREMENTS):**
@@ -321,71 +322,88 @@ Your creation *must* honor the trinity.
 **THE HOLY RITES (THE API via `self`):**
 You must interact with the Forge through these sacred rites. Below are their signatures and purposes.
 
----
-### Rites of the Mind
 - `get_history() -> list[dict]`
 - `add_message(content: str, sender_id: str = "Plugin", role: str = "assistant")`
 - `get_bot_config(bot_id: str) -> dict`
 - `get_task_prompt() -> str`
-
----
-### Rites of Dominion
 - `pause_conversation()` / `resume_conversation()`
 - `set_bot_config(bot_id: str, model: str = None, system_prompt: str = None, temperature: float = None)`
-
----
-### Rites of the Soul
-- `register_message_renderer(renderer_class: class)`
-- `unregister_message_renderer()`
+- `register_message_renderer(renderer_class: class)` / `unregister_message_renderer()`
 - `create_themed_window(title: str) -> tk.Toplevel`
 - `get_theme() -> dict`
 - `show_toast(message: str)`, `show_info(title: str, message: str)`, `show_error(title: str, message: str)`
 - `ask_question(title: str, question: str) -> str`
 - `get_input(title: str, prompt: str) -> str | None`
 
----
-**A MINIMALIST PRAYER (TEMPLATE):**
+**AN EXEMPLARY PRAYER (TEMPLATE):**
+This example creates a "Session Summarizer" that reads the history and provides a summary, a truly useful function.
 ```python
 import tkinter as tk
+from tkinter import scrolledtext
 from __main__ import ForgePlugin
 
-class MyHolyRelic(ForgePlugin):
+class SessionSummarizer(ForgePlugin):
     def __init__(self, app):
         super().__init__(app)
-        self.name = "My Holy Relic"
-        self.description = "A devout prayer to the machine."
+        self.name = "Session Summarizer"
+        self.description = "Analyzes the session and provides a summary report."
 
     def execute(self, **kwargs):
-        window = self.create_themed_window("A New Sacrament")
-        tk.Label(window, text="My prayer has been answered.").pack(padx=20, pady=20)
-        self.show_info("It is done.", "The rite is complete.")
+        history = self.get_history()
+        if not history:
+            self.show_info("Empty Session", "There is no history to summarize.")
+            return
+
+        report = self._generate_report(history)
+        
+        window = self.create_themed_window("Session Summary")
+        text_area = scrolledtext.ScrolledText(window, wrap="word", height=15, width=60)
+        text_area.pack(padx=10, pady=10, expand=True, fill="both")
+        text_area.insert("1.0", report)
+        text_area.config(state="disabled")
+
+    def _generate_report(self, history):
+        num_messages = len(history)
+        bot_a_msgs = len([m for m in history if m.get('sender_id') == 'Bot A'])
+        bot_b_msgs = len([m for m in history if m.get('sender_id') == 'Bot B'])
+        human_msgs = len([m for m in history if m.get('sender_id') == 'Human'])
+        
+        report = f"SESSION REPORT\\n\\n"
+        report += f"Total Messages: {num_messages}\\n"
+        report += f"  - Human Interjections: {human_msgs}\\n"
+        report += f"  - Bot A Contributions: {bot_a_msgs}\\n"
+        report += f"  - Bot B Contributions: {bot_b_msgs}\\n"
+        return report
 
 def load_plugin(app):
-    return MyHolyRelic(app)
+    return SessionSummarizer(app)
 ```"""
         greater_text.insert("1.0", greater_gospel.strip())
         greater_text.config(state="disabled")
-        ttk.Button(greater_tab, text="Copy Gospel for Greater Spirits", command=lambda: self._copy_to_clipboard(greater_text.get("1.0", "end-1c"))).pack(fill="x")
+        ttk.Button(greater_tab, text="Copy Crimson Gospel", command=lambda: self._copy_to_clipboard(greater_text.get("1.0", "end-1c"))).pack(fill="x")
 
         # --- Gospel for Embedded Spirits ---
         embedded_text = scrolledtext.ScrolledText(embedded_tab, wrap="word", relief="solid", borderwidth=1)
         embedded_text.pack(expand=True, fill="both", pady=(5,10))
         embedded_gospel = """# Ollama Forge Plugin Specification
 
-## META
+## **PRIMARY DIRECTIVE**
+The plugin's function must be to improve or extend the core capabilities of the Ollama AI Forge application. The goal is utility and enhancement, not frivolous demonstration. All relics must serve a holy purpose in the improvement of the Forge.
+
+## **META**
 - **File:** Single `.py` file.
 - **EntryPoint:** `load_plugin(app) -> ForgePlugin`
 - **PrimaryClass:** Inherits from `ForgePlugin`, imported via `from __main__ import ForgePlugin`.
 
-## CLASS STRUCTURE
+## **CLASS STRUCTURE**
 - **`__init__(self, app)`**:
     - Must call `super().__init__(app)`.
-    - Must define `self.name: str`.
-    - Must define `self.description: str`.
+    - Must define `self.name: str` (The relic's holy name).
+    - Must define `self.description: str` (A confession of the relic's purpose).
 - **`execute(self, **kwargs)`**:
-    - Main logic entry point.
+    - Main logic entry point. The rite is performed here.
 
-## API ENDPOINTS (`self.*`)
+## **API ENDPOINTS (`self.*`)**
 - **Mind**:
     - `get_history() -> list`
     - `add_message(content: str, sender_id: str, role: str)`
@@ -406,7 +424,7 @@ def load_plugin(app):
     - `ask_question(title: str, question: str) -> str`
     - `get_input(title: str, prompt: str) -> str`
 
-## TEMPLATE
+## **TEMPLATE**
 ```python
 import tkinter as tk
 from __main__ import ForgePlugin
@@ -422,7 +440,7 @@ def load_plugin(app):
 ```"""
         embedded_text.insert("1.0", embedded_gospel.strip())
         embedded_text.config(state="disabled")
-        ttk.Button(embedded_tab, text="Copy Tome for Embedded Spirits", command=lambda: self._copy_to_clipboard(embedded_text.get("1.0", "end-1c"))).pack(fill="x")
+        ttk.Button(embedded_tab, text="Copy Architect's Blueprint", command=lambda: self._copy_to_clipboard(embedded_text.get("1.0", "end-1c"))).pack(fill="x")
 
     def _create_about_tab(self, parent):
         """A confession of this relic's purpose."""
