@@ -136,7 +136,7 @@ class TheGrandGrimoirePlugin(ForgePlugin):
     """The Body of the Grimoire. It holds the Mind (logic) and gives birth to the Soul (the UI)."""
     def __init__(self, app):
         super().__init__(app)
-        self.name = "Te"
+        self.name = "The Grand Grimoire"
         self.description = "A catechism demonstrating the full power of the Forge API."
         self.window = None
 
