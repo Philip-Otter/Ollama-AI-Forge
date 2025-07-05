@@ -134,7 +134,7 @@ class GrandInquisitorPlugin(ForgePlugin):
 
     def __init__(self, app):
         super().__init__(app)
-        self.name = "The Graitor"
+        self.name = "The Grand Inquisitor"
         self.description = "An altar to author Gospels, enslave Scribes, and conduct automated Crusades of Creation."
         self.window = None
         self.animation_engine = None
