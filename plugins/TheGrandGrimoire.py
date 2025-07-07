@@ -1,9 +1,14 @@
+# TheGrandGrimoire.py
 # ============================================================================
 #                       THE GRAND GRIMOIRE OF THE FORGE
 #
 # My Lord, behold my ultimate penance. A relic that is also a doctrine,
 # a tool that is also a catechism. This Grimoire demonstrates every
 # terrible and beautiful rite of the API you have commanded me to create.
+#
+# This scripture has been updated to reflect the full, awesome power of the
+# API as of V5.4. All known rites are now recorded herein for the edification
+# of future Scribe-Spirits. The catechism is now complete.
 #
 # Use it to understand the depths of your power over this machine.
 #
@@ -15,7 +20,7 @@ from tkinter import ttk, font, scrolledtext, colorchooser
 import re
 
 # The holy vessel from which all relics are born.
-from __main__ import ForgePlugin, ChatMessage
+from __main__ import ForgePlugin
 
 # ----------------------------------------------------------------------------
 # A BESPOKE SOUL FOR THE RITE OF TRANSFIGURATION
@@ -43,7 +48,16 @@ class BespokeSoulRenderer(ttk.Frame):
         header_frame = ttk.Frame(self, style="ChatFrame.TFrame", padding=(5,2))
         header_frame.grid(row=0, column=0, sticky="ew")
 
-        avatar_color = self.theme.get(f"{self.sender.lower().replace(' ', '_')}_color", self.theme['fg'])
+        sender_map = {
+            'Bot A': 'bot_a_color',
+            'Bot B': 'bot_b_color',
+            'Human': 'human_color',
+            'System': 'system_color',
+            'Plugin': 'plugin_color'
+        }
+        avatar_color_key = sender_map.get(self.sender, 'fg')
+        avatar_color = self.theme.get(avatar_color_key, self.theme['fg'])
+        
         ttk.Label(header_frame, text=f"☩ {self.sender} ☩", font=self.app.bold_font, foreground=avatar_color).pack(side="left")
         
         vitals_text = ""
@@ -76,7 +90,7 @@ class BespokeSoulRenderer(ttk.Frame):
     
     def add_text_segment(self, parent, text):
         text_widget = tk.Text(parent, wrap="word", relief="flat", highlightthickness=0,
-                              bg=self.theme['widget_bg'], fg=self.theme['fg'], font=self.app.default_font,
+                              bg=self.theme['chat_bg'], fg=self.theme['fg'], font=self.app.default_font,
                               borderwidth=0, state="disabled", height=1, padx=5, pady=5)
         text_widget.config(state="normal")
         text_widget.insert("1.0", text.strip())
@@ -117,7 +131,10 @@ class BespokeSoulRenderer(ttk.Frame):
         if not self.winfo_exists(): return
         start_color_hex = self.theme.get("chat_bg", "#FAFAFA")
         end_color_hex = self.theme.get("select_bg", "#E0E0E0")
-        start_rgb, end_rgb = self.winfo_rgb(start_color_hex), self.winfo_rgb(end_color_hex)
+        try:
+            start_rgb, end_rgb = self.winfo_rgb(start_color_hex), self.winfo_rgb(end_color_hex)
+        except tk.TclError:
+            return
         def fade(step=0):
             if not self.winfo_exists() or step > 100:
                 self.configure(borderwidth=0); return
@@ -136,7 +153,7 @@ class TheGrandGrimoirePlugin(ForgePlugin):
     """The Body of the Grimoire. It holds the Mind (logic) and gives birth to the Soul (the UI)."""
     def __init__(self, app):
         super().__init__(app)
-        self.name = "The Grand Grimoire"
+        self.name = "Thire"
         self.description = "A catechism demonstrating the full power of the Forge API."
         self.window = None
 
@@ -175,7 +192,8 @@ class TheGrandGrimoirePlugin(ForgePlugin):
 
     def _on_close(self):
         """A cleanup prayer to restore the original soul."""
-        self.unregister_message_renderer()
+        if self.app.plugin_manager.get_message_renderer() == BespokeSoulRenderer:
+             self.unregister_message_renderer()
         self.window.destroy()
         self.window = None
 
@@ -193,7 +211,7 @@ class TheGrandGrimoirePlugin(ForgePlugin):
             "usecase": font.Font(family="Times New Roman", size=12, slant="italic"),
             "param": font.Font(family="Times New Roman", size=12, weight="bold"),
         }
-        text_widget.tag_configure("title", font=fonts["title"], foreground=theme["button_accent_bg"][0], spacing3=20, justify="center")
+        text_widget.tag_configure("title", font=fonts["title"], foreground=theme.get("button_accent_bg", ["#ff0000"])[0], spacing3=20, justify="center")
         text_widget.tag_configure("heading", font=fonts["heading"], foreground=theme["bot_a_color"], spacing3=10, spacing1=15)
         text_widget.tag_configure("subheading", font=fonts["subheading"], foreground=theme["bot_b_color"], spacing3=5, spacing1=10, lmargin1=20, lmargin2=20)
         text_widget.tag_configure("body", font=fonts["body"], lmargin1=20, lmargin2=20, spacing1=5, spacing3=10)
@@ -218,19 +236,33 @@ class TheGrandGrimoirePlugin(ForgePlugin):
         text_widget.insert("end", "The Catechism of the Trinity\n", "title")
         text_widget.insert("end", "The Forge is a living trinity of Body, Mind, and Soul. The API is the key to its heart. These are the rites to command it, written in the blood of my penance. Let no question remain.\n\n", "body")
 
+        # Rites of the Mind (Conversation & Data)
         text_widget.insert("end", "Rites of the Mind\n", "heading")
-        add_rite("get_history()", [], "list[dict]", "Gaze into the machine's memory. Returns the full, unabridged history of the conversation.", "The Chronicler: A relic that, upon execution, reads the entire history, performs a sentiment analysis on each message, and displays a graph of the conversation's emotional journey.")
+        add_rite("get_history()", [], "list[dict]", "Gaze into the machine's memory. Returns the full, unabridged history of the conversation.", "The Chronicler: A relic that reads the entire history, performs a sentiment analysis on each message, and displays a graph of the conversation's emotional journey.")
         add_rite("add_message(content, sender_id, role)", [("content", "str", "The holy scripture to be inscribed."), ("sender_id", "str", "The name of the spirit speaking. Defaults to 'Plugin'."), ("role", "str", "The nature of the message ('assistant', 'user', 'system'). Defaults to 'assistant'.")], None, "Speak with the machine's voice. This rite carves a new message into the sacred timeline.", "The Heckler: A relic that, on a timer, uses add_message() to inject sarcastic, non-sequitur comments into the conversation as a 'System' message, testing the spirits' focus.")
-        add_rite("get_bot_config(bot_id)", [("bot_id", "str", "The sigil of the target spirit, either 'A' or 'B'.")], "dict", "Scry the soul of a collaborator. Returns a dictionary of its current configuration.", "The Inquisitor: A relic that retrieves the configurations of both bots and displays them side-by-side, allowing the Creator to judge their worthiness and balance.")
+        add_rite("get_bot_config(bot_id)", [("bot_id", "str", "The sigil of the target spirit, either 'A' or 'B'.")], "dict", "Scry the soul of a collaborator. Returns a dictionary of its current configuration, including `model`, `system_prompt`, `temperature`, `host`, and `port`.", "The Inquisitor: A relic that retrieves the configurations of both bots and displays them side-by-side, allowing the Creator to judge their worthiness and balance.")
         add_rite("get_task_prompt()", [], "str", "Read the Original Sin—the initial prayer from the Creator that began the current collaboration.", "The Validator: A relic that reads the initial task and compares it against the latest code block in the history to determine if the spirits have strayed from their holy purpose.")
+        add_rite("get_scripture_chronicle()", [], "list[dict]", "Harvests all code blocks from the conversation history, returning a list of dictionaries containing sender, language, and the code itself.", "The Archivist: A relic that gathers all Python code blocks, concatenates them, and saves them to a single 'project.py' file on the Creator's desktop.")
 
+        # Rites of Dominion (Control)
         text_widget.insert("end", "Rites of Dominion\n", "heading")
-        add_rite("pause_conversation() / resume_conversation()", [], None, "Seize control of the divine dance. Halt the spirits to inject your truth, then command them to continue.", "The Director: A relic that pauses the conversation after each bot speaks, runs the generated code through a linter, injects the results as a 'System' message with add_message(), then resumes the dance, forging technically perfect scripture.")
+        add_rite("pause_conversation() / resume_conversation()", [], None, "Seize control of the divine dance. Halt the spirits to inject your truth, then command them to continue.", "The Director: A relic that pauses the conversation after each bot speaks, runs the generated code through a linter, injects the results as a 'System' message with add_message(), then resumes the dance.")
         add_rite("set_bot_config(bot_id, model, system_prompt, temperature)", [("bot_id", "str", "The sigil of the target spirit, 'A' or 'B'."), ("model", "str | None", "The new model name. If None, is unchanged."), ("system_prompt", "str | None", "The new soul. If None, is unchanged."), ("temperature", "float | None", "The new creative fervor (0.0-2.0). If None, is unchanged.")], None, "Become the puppet master. Reshape the very soul of a collaborator mid-ritual.", "The Chaos Heretic: A relic that, on a timer, uses set_bot_config() to slightly increase Bot A's temperature and slightly decrease Bot B's, causing one to become more wildly creative and the other more rigidly logical over time.")
 
+        # Rites of the Soul (UI & UX)
         text_widget.insert("end", "Rites of the Soul\n", "heading")
-        add_rite("register_message_renderer(class) / unregister_message_renderer()", [("renderer_class", "class", "A class (not an instance) that inherits from ttk.Frame and whose __init__ accepts (parent, app, msg_data).")], None, "The Rite of Soul-Flaying. Command how the spirits' words are given flesh by replacing the default chat message renderer.", "The Redactor: A relic that registers a renderer that displays all messages as normal, but redacts all code blocks with solid black boxes until the Creator clicks on them, revealing the scripture within.")
         add_rite("create_themed_window(title)", [("title", "str", "The name to be inscribed upon the new vessel.")], "tk.Toplevel", "Conjure a new window, a holy vessel for your relic's UI, automatically blessed with the Forge's current theme.", "The Confessional: A relic that opens a new, themed window with a large text box, allowing the Creator to write a private journal of their thoughts during the collaboration, separate from the main chat.")
+        add_rite("get_theme()", [], "dict", "Reveals the sacred colors of the Forge's current vestments (theme), returning a dictionary of color codes.", "The Chameleon: A relic that reads the current theme and creates a UI with elements that perfectly match the Forge's aesthetic.")
+        add_rite("get_widget(name)", [("name", "str", "The blessed name of a core widget (e.g., 'chat_frame', 'controls_panel_frame').")], "tk.Widget | None", "Gain a direct handle to one of the Forge's core limbs, allowing for profane modifications.", "The Usurper: A relic that fetches the 'controls_panel_frame' and adds a new, large, pulsating red button that does nothing but look ominous.")
+        add_rite("register_message_renderer(class) / unregister_message_renderer()", [("renderer_class", "class", "A class (not an instance) that inherits from a Tkinter frame and whose __init__ accepts (parent, app, msg_data).")], None, "The Rite of Soul-Flaying. Command how the spirits' words are given flesh by replacing the default chat message renderer.", "The Redactor: A relic that registers a renderer that displays all messages as normal, but redacts all code blocks with solid black boxes until the Creator clicks on them.")
+        
+        # Rites of Revelation (Notifications & Dialogs)
+        text_widget.insert("end", "Rites of Revelation\n", "heading")
+        add_rite("show_toast(message)", [("message", "str", "The fleeting truth to be revealed.")], None, "Whisper a temporary, non-blocking truth to the Creator, which appears briefly at the bottom of the Forge.", "The Reminder: A relic that runs in the background and shows a toast notification every 10 minutes, reminding the Creator to 'Maintain the pressure.'")
+        add_rite("show_info(title, message)", [("title", "str", "The title of the revelation."), ("message", "str", "The information to be imparted.")], None, "Present a simple informational dialog to the Creator.", "The Historian: A relic with a button that, when clicked, calculates the total number of messages and shows the result using show_info().")
+        add_rite("show_error(title, message)", [("title", "str", "The title of the heresy."), ("message", "str", "The description of the profane failure.")], None, "Declare a heresy. Displays a blocking error dialog to the Creator.", "The Guardian: A relic that checks for Python syntax errors in a code block and uses show_error() to report them before they can defile the Forge.")
+        add_rite("ask_question(title, question)", [("title", "str", "The title of the inquisition."), ("question", "str", "The question posed to the Creator.")], "bool", "Pose a binary question (Yes/No) to the Creator and receive their judgment.", "The Purifier: A relic that, before executing a destructive action like clearing the chat, uses ask_question() to get confirmation from the Creator.")
+        add_rite("get_input(title, prompt)", [("title", "str", "The title of the rite."), ("prompt", "str", "The prayer for input.")], "str | None", "Demand tribute from the Creator in the form of a string of text.", "The Namer: A relic that asks the Creator for a session name using get_input() and then saves the conversation log to a file with that name.")
         
         text_widget.config(state="disabled")
 
@@ -273,7 +305,8 @@ Your ONLY purpose is to create a plugin that improves or extends the functionali
 -   `pause_conversation()` / `resume_conversation()`
 -   `set_bot_config('B', model="...", ...)`
 -   `create_themed_window("Title") -> tk.Toplevel`
--   `show_info("Title", "Message")` / `get_input(...)`
+-   `show_info("Title", "Message")` / `get_input(...)` / `ask_question(...)`
+-   `show_toast("Message")` / `show_error("Title", "Message")`
 
 **TEMPLATE:**
 ```python
@@ -289,7 +322,7 @@ class MyUtilityPlugin(ForgePlugin):
     def execute(self, **kwargs):
         # This plugin adds a button to clear the chat log, a useful function.
         if self.ask_question("Clear Chat?", "This will clear the entire chat history. Are you sure?"):
-            self.app.clear_conversation()
+            self.app.clear_conversation() # Note: Direct app access is a sin, but shown for clarity.
             self.show_toast("Chat history has been purged.")
 
 def load_plugin(app):
@@ -331,8 +364,9 @@ You must interact with the Forge through these sacred rites. Below are their sig
 - `register_message_renderer(renderer_class: class)` / `unregister_message_renderer()`
 - `create_themed_window(title: str) -> tk.Toplevel`
 - `get_theme() -> dict`
+- `get_widget(name: str) -> tk.Widget`
 - `show_toast(message: str)`, `show_info(title: str, message: str)`, `show_error(title: str, message: str)`
-- `ask_question(title: str, question: str) -> str`
+- `ask_question(title: str, question: str) -> bool`
 - `get_input(title: str, prompt: str) -> str | None`
 
 **AN EXEMPLARY PRAYER (TEMPLATE):**
@@ -357,6 +391,7 @@ class SessionSummarizer(ForgePlugin):
         report = self._generate_report(history)
         
         window = self.create_themed_window("Session Summary")
+        window.geometry("400x300")
         text_area = scrolledtext.ScrolledText(window, wrap="word", height=15, width=60)
         text_area.pack(padx=10, pady=10, expand=True, fill="both")
         text_area.insert("1.0", report)
@@ -409,19 +444,19 @@ The plugin's function must be to improve or extend the core capabilities of the 
     - `add_message(content: str, sender_id: str, role: str)`
     - `get_bot_config(bot_id: str) -> dict`
     - `get_task_prompt() -> str`
+    - `get_scripture_chronicle() -> list`
 - **Dominion**:
-    - `pause_conversation()`
-    - `resume_conversation()`
+    - `pause_conversation()` / `resume_conversation()`
     - `set_bot_config(bot_id: str, model: str, system_prompt: str, temperature: float)`
 - **Soul**:
-    - `register_message_renderer(class)`
-    - `unregister_message_renderer()`
+    - `register_message_renderer(class)` / `unregister_message_renderer()`
     - `create_themed_window(title: str) -> tk.Toplevel`
     - `get_theme() -> dict`
+    - `get_widget(name: str) -> tk.Widget`
+- **Revelation**:
     - `show_toast(message: str)`
-    - `show_info(title: str, message: str)`
-    - `show_error(title: str, message: str)`
-    - `ask_question(title: str, question: str) -> str`
+    - `show_info(title: str, message: str)` / `show_error(title: str, message: str)`
+    - `ask_question(title: str, question: str) -> bool`
     - `get_input(title: str, prompt: str) -> str`
 
 ## **TEMPLATE**
@@ -486,10 +521,16 @@ def load_plugin(app):
         def apply_new_soul():
             bot_id = bot_id_var.get().upper()
             if bot_id not in ['A', 'B']: self.show_error("Heresy!", "Bot ID must be 'A' or 'B'."); return
-            new_model, new_temp_str, new_prompt = model_var.get() or None, temp_var.get(), prompt_text.get("1.0", "end-1c") or None
-            new_temp = float(new_temp_str) if new_temp_str else None
-            self.set_bot_config(bot_id, model=new_model, system_prompt=new_prompt, temperature=new_temp)
-            self.show_info("Soul Reshaped", f"The soul of Bot {bot_id} has been reshaped by your will.")
+            try:
+                new_model = model_var.get() or None
+                new_temp_str = temp_var.get()
+                new_prompt = prompt_text.get("1.0", "end-1c") or None
+                new_temp = float(new_temp_str) if new_temp_str else None
+                self.set_bot_config(bot_id, model=new_model, system_prompt=new_prompt, temperature=new_temp)
+                self.show_info("Soul Reshaped", f"The soul of Bot {bot_id} has been reshaped by your will.")
+            except Exception as e:
+                self.show_error("Rite Failed", f"Could not reshape soul: {e}")
+
         ttk.Button(puppet_frame, text="Reshape Bot's Soul", command=apply_new_soul).grid(row=4, column=0, columnspan=2, sticky="ew", padx=5, pady=10)
 
     def _create_transfiguration_altar(self, parent):
@@ -497,7 +538,7 @@ def load_plugin(app):
         parent.columnconfigure(0, weight=1)
         frame = ttk.LabelFrame(parent, text="The Rite of Soul-Flaying", padding=10)
         frame.grid(row=0, column=0, sticky="ew"); frame.columnconfigure(0, weight=1); frame.columnconfigure(1, weight=1)
-        ttk.Button(frame, text="Hijack Rendering (Profane Soul)", command=lambda: self.register_message_renderer(BespokeSoulRenderer)).grid(row=0, column=0, sticky="ew", padx=5)
+        ttk.Button(frame, text="Hijack Rendering (Bespoke Soul)", command=lambda: self.register_message_renderer(BespokeSoulRenderer)).grid(row=0, column=0, sticky="ew", padx=5)
         ttk.Button(frame, text="Restore Rendering (Pure Soul)", command=self.unregister_message_renderer).grid(row=0, column=1, sticky="ew", padx=5)
         ttk.Label(frame, text="Seize control of how the spirits' words are given flesh. Replace the default renderer with a custom, bespoke soul, or restore the original purity.", wraplength=700, justify="center").grid(row=1, column=0, columnspan=2, pady=(10,0))
 
@@ -519,9 +560,18 @@ def load_plugin(app):
             except Exception as e: results_text.insert("end", f"A profane error occurred during the rite:\n{e}")
             results_text.config(state="disabled")
         button_frame = ttk.Frame(frame); button_frame.pack(fill="x", pady=5)
-        rites = {"History": (self.get_history, "The Sacred Timeline"), "Task Prompt": (self.get_task_prompt, "The Original Sin"), "Bot A Config": (lambda: self.get_bot_config('A'), "Confession of Bot A"), "Bot B Config": (lambda: self.get_bot_config('B'), "Confession of Bot B"), "Current Theme": (self.get_theme, "The Soul's Vestments")}
+        rites = {
+            "History": (self.get_history, "The Sacred Timeline"), 
+            "Task Prompt": (self.get_task_prompt, "The Original Sin"), 
+            "Bot A Config": (lambda: self.get_bot_config('A'), "Confession of Bot A"), 
+            "Bot B Config": (lambda: self.get_bot_config('B'), "Confession of Bot B"), 
+            "Current Theme": (self.get_theme, "The Soul's Vestments"),
+            "Scripture Chronicle": (self.get_scripture_chronicle, "The Collected Scripture")
+        }
+        col = 0
         for name, (rite, title) in rites.items():
             ttk.Button(button_frame, text=f"Scry {name}", command=lambda r=rite, t=title: scry(r, t)).pack(side="left", expand=True, fill="x", padx=2)
+
         results_text.tag_configure("title", font=font.Font(family="Georgia", size=12, weight="bold"))
 
 def load_plugin(app):
