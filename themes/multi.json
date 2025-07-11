@@ -1,0 +1,901 @@
+{
+    "Abyssal Datascroll": {
+        "bg": "#020a14",
+        "fg": "#9fffff",
+        "widget_bg": "#0a1424",
+        "select_bg": "#1d3b5f",
+        "button_bg": "#102a4a",
+        "button_fg": "#9fffff",
+        "button_accent_bg": [
+            "#00aaff"
+        ],
+        "bot_a_color": "#00aaff",
+        "bot_b_color": "#33cccc",
+        "bot_c_color": "#7df9ff",
+        "system_color": "#607b9e",
+        "human_color": "#ffffff",
+        "code_bg": "#000000",
+        "code_fg": "#9fffff",
+        "success_fg": "#33cccc",
+        "error_fg": "#ff5577",
+        "timestamp_color": "#4a6587",
+        "border_color": "#1d3b5f",
+        "chat_bg": "#050e1a",
+        "animations": {
+            "oracle": "giger_orifice",
+            "status": "scanline"
+        }
+    },
+    "Aether Grid": {
+        "bg": "#01012a",
+        "fg": "#00f2ea",
+        "widget_bg": "#1d1145",
+        "select_bg": "#ff4f81",
+        "button_bg": "#00f2ea",
+        "button_fg": "#01012a",
+        "button_accent_bg": [
+            "#ff4f81",
+            "#ffffff"
+        ],
+        "bot_a_color": "#00f2ea",
+        "bot_b_color": "#ff71ce",
+        "system_color": "#8441a5",
+        "human_color": "#ffffff",
+        "code_bg": "#100820",
+        "code_fg": "#ffffff",
+        "success_fg": "#39ff14",
+        "error_fg": "#f94144",
+        "timestamp_color": "#8441a5",
+        "border_color": "#ff4f81",
+        "chat_bg": "#0a061f",
+        "animation": {
+            "type": "scanline",
+            "color": "#00f2ea"
+        }
+    },
+    "Blood Lace": {
+        "bg": "#1a0000",
+        "fg": "#f5f5f5",
+        "widget_bg": "#330000",
+        "select_bg": "#4d0000",
+        "button_bg": "#8b0000",
+        "button_fg": "#f5f5f5",
+        "button_accent_bg": [
+            "#ff4d4d",
+            "#000000"
+        ],
+        "bot_a_color": "#ff4d4d",
+        "bot_b_color": "#e6e6e6",
+        "system_color": "#d3d3d3",
+        "human_color": "#ffffff",
+        "code_bg": "#000000",
+        "code_fg": "#f5f5f5",
+        "success_fg": "#ff4d4d",
+        "error_fg": "#ffb3b3",
+        "timestamp_color": "#a9a9a9",
+        "border_color": "#8b0000",
+        "chat_bg": "#100000",
+        "animation": {
+            "type": "scanline",
+            "color": "#ff4d4d"
+        }
+    },
+    "Cathedral": {
+        "bg": "#2c3e50",
+        "fg": "#ecf0f1",
+        "widget_bg": "#34495e",
+        "select_bg": "#7f8c8d",
+        "button_bg": "#c7a464",
+        "button_fg": "#2c3e50",
+        "button_accent_bg": [
+            "#f1c40f",
+            "#2c3e50"
+        ],
+        "bot_a_color": "#f1c40f",
+        "bot_b_color": "#bdc3c7",
+        "system_color": "#95a5a6",
+        "human_color": "#ffffff",
+        "code_bg": "#212f3c",
+        "code_fg": "#ecf0f1",
+        "success_fg": "#a9c9a4",
+        "error_fg": "#e74c3c",
+        "timestamp_color": "#7f8c8d",
+        "border_color": "#c7a464",
+        "chat_bg": "#273746",
+        "animation": {
+            "type": "static"
+        }
+    },
+    "Cottagecore Cryptid": {
+        "bg": "#f5e6f2",
+        "fg": "#4a2c41",
+        "widget_bg": "#e8d5e3",
+        "select_bg": "#d3b8cd",
+        "button_bg": "#4a2c41",
+        "button_fg": "#f5e6f2",
+        "button_accent_bg": [
+            "#987d90",
+            "#000000"
+        ],
+        "bot_a_color": "#8d6d85",
+        "bot_b_color": "#b192a7",
+        "system_color": "#7a5c71",
+        "human_color": "#4a2c41",
+        "code_bg": "#3b2334",
+        "code_fg": "#f5e6f2",
+        "success_fg": "#6a8d6d",
+        "error_fg": "#a85c6c",
+        "timestamp_color": "#987d90",
+        "border_color": "#c3a8bb",
+        "chat_bg": "#f0e0ed",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Cyber-Flesh Cathedral": {
+        "bg": "#0a010d",
+        "fg": "#ff00ff",
+        "widget_bg": "#1a0321",
+        "select_bg": "#4b0082",
+        "button_bg": "#8a2be2",
+        "button_fg": "#f0f0f0",
+        "button_accent_bg": [
+            "#00ffff"
+        ],
+        "bot_a_color": "#00ffff",
+        "bot_b_color": "#ff00ff",
+        "bot_c_color": "#7fff00",
+        "system_color": "#8a2be2",
+        "human_color": "#ffffff",
+        "code_bg": "#000000",
+        "code_fg": "#00ff00",
+        "success_fg": "#00ff00",
+        "error_fg": "#ff4500",
+        "timestamp_color": "#4b0082",
+        "border_color": "#00ffff",
+        "chat_bg": "#050008",
+        "animations": {
+            "oracle": "giger_orifice",
+            "status": "glitch"
+        }
+    },
+    "Cyberpunk Neon": {
+        "bg": "#0a0a2a",
+        "fg": "#00ffcc",
+        "widget_bg": "#14143c",
+        "select_bg": "#2a2a5e",
+        "button_bg": "#ff00ff",
+        "button_fg": "#0a0a2a",
+        "button_accent_bg": [
+            "#ff00ff",
+            "#ff66ff"
+        ],
+        "bot_a_color": "#00ffff",
+        "bot_b_color": "#ffcc00",
+        "system_color": "#8888aa",
+        "human_color": "#00ffcc",
+        "code_bg": "#05051a",
+        "code_fg": "#f0f0f0",
+        "success_fg": "#00ff00",
+        "error_fg": "#ff3333",
+        "timestamp_color": "#8888aa",
+        "border_color": "#ff00ff",
+        "chat_bg": "#0f0f30",
+        "animation": {
+            "type": "slide",
+            "direction": "left"
+        }
+    },
+    "Deep Fried Mars": {
+        "bg": "#4d1800",
+        "fg": "#ffff00",
+        "widget_bg": "#802800",
+        "select_bg": "#ff3300",
+        "button_bg": "#ffff00",
+        "button_fg": "#000000",
+        "button_accent_bg": [
+            "#ff3300",
+            "#ffffff"
+        ],
+        "bot_a_color": "#ff6600",
+        "bot_b_color": "#ff9933",
+        "system_color": "#ffcc66",
+        "human_color": "#ffffff",
+        "code_bg": "#331000",
+        "code_fg": "#ffff99",
+        "success_fg": "#66ff66",
+        "error_fg": "#ff3333",
+        "timestamp_color": "#ffaa00",
+        "border_color": "#ff6600",
+        "chat_bg": "#662000",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Deftone Digital": {
+        "bg": "#1c1c1c",
+        "fg": "#dcdcdc",
+        "widget_bg": "#363636",
+        "select_bg": "#008080",
+        "button_bg": "#dcdcdc",
+        "button_fg": "#000000",
+        "button_accent_bg": [
+            "#008080",
+            "#ffffff"
+        ],
+        "bot_a_color": "#00adad",
+        "bot_b_color": "#dcdcdc",
+        "system_color": "#8b8b8b",
+        "human_color": "#ffffff",
+        "code_bg": "#121212",
+        "code_fg": "#f0f0f0",
+        "success_fg": "#98fb98",
+        "error_fg": "#ff6347",
+        "timestamp_color": "#8b8b8b",
+        "border_color": "#008080",
+        "chat_bg": "#151515",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Feline Overlord": {
+        "bg": "#1a1a1a",
+        "fg": "#e0e0e0",
+        "widget_bg": "#2a2a2a",
+        "select_bg": "#a87a27",
+        "button_bg": "#3a3a3a",
+        "button_fg": "#f0f0f0",
+        "button_accent_bg": [
+            "#ffd700"
+        ],
+        "bot_a_color": "#ffd700",
+        "bot_b_color": "#c0c0c0",
+        "system_color": "#8d8d8d",
+        "human_color": "#ffffff",
+        "code_bg": "#101010",
+        "code_fg": "#e0e0e0",
+        "success_fg": "#ffd700",
+        "error_fg": "#ff4d4d",
+        "timestamp_color": "#a0a0a0",
+        "border_color": "#a87a27",
+        "chat_bg": "#202020",
+        "animations": {
+            "oracle": "cat_eye",
+            "status": "cat_toy",
+            "background": "cosmic_yarn"
+        }
+    },
+    "Flavortown": {
+        "bg": "#000000",
+        "fg": "#ffff00",
+        "widget_bg": "#333333",
+        "select_bg": "#ff0000",
+        "button_bg": "#ffff00",
+        "button_fg": "#000000",
+        "button_accent_bg": [
+            "#ff0000",
+            "#f5f5f5"
+        ],
+        "bot_a_color": "#ff0000",
+        "bot_b_color": "#ffff00",
+        "system_color": "#c0c0c0",
+        "human_color": "#ffffff",
+        "code_bg": "#222222",
+        "code_fg": "#ffffff",
+        "success_fg": "#00ff00",
+        "error_fg": "#ff0000",
+        "timestamp_color": "#aaaaaa",
+        "border_color": "#ff0000",
+        "chat_bg": "#111111",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Ghost Wire": {
+        "bg": "#1A1A1D",
+        "fg": "#C5C6C7",
+        "widget_bg": "#2A2A2E",
+        "select_bg": "#4E4E50",
+        "button_bg": "#6B2737",
+        "button_fg": "#FFFFFF",
+        "button_accent_bg": [
+            "#C5C6C7",
+            "#FFFFFF"
+        ],
+        "bot_a_color": "#950740",
+        "bot_b_color": "#C3073F",
+        "system_color": "#6F2232",
+        "human_color": "#FFFFFF",
+        "code_bg": "#0B0C10",
+        "code_fg": "#C5C6C7",
+        "success_fg": "#45A29E",
+        "error_fg": "#C3073F",
+        "timestamp_color": "#6F2232",
+        "border_color": "#4E4E50",
+        "chat_bg": "#0B0C10",
+        "animation": {
+            "type": "scanline",
+            "color": "#FFFFFF"
+        }
+    },
+    "Gilded Cage": {
+        "bg": "#2c2a2b",
+        "fg": "#e6d5b8",
+        "widget_bg": "#403d39",
+        "select_bg": "#a47c48",
+        "button_bg": "#8c5e58",
+        "button_fg": "#e6d5b8",
+        "button_accent_bg": [
+            "#d4af37"
+        ],
+        "bot_a_color": "#d4af37",
+        "bot_b_color": "#c0c0c0",
+        "bot_c_color": "#b87333",
+        "system_color": "#a9a9a9",
+        "human_color": "#ffffff",
+        "code_bg": "#1e1e1e",
+        "code_fg": "#e6d5b8",
+        "success_fg": "#b87333",
+        "error_fg": "#d44d4d",
+        "timestamp_color": "#8c5e58",
+        "border_color": "#d4af37",
+        "chat_bg": "#33312f",
+        "animations": {
+            "oracle": "static_eye",
+            "status": "pulse"
+        }
+    },
+    "Glitch Matrix": {
+        "bg": "#0D0208",
+        "fg": "#00FF41",
+        "widget_bg": "#000000",
+        "select_bg": "#003B00",
+        "button_bg": "#00FF41",
+        "button_fg": "#000000",
+        "button_accent_bg": [
+            "#00FF41",
+            "#FFFFFF"
+        ],
+        "bot_a_color": "#39FF14",
+        "bot_b_color": "#008F11",
+        "system_color": "#00B32C",
+        "human_color": "#FFFFFF",
+        "code_bg": "#001E00",
+        "code_fg": "#FFFFFF",
+        "success_fg": "#00FF41",
+        "error_fg": "#FF0000",
+        "timestamp_color": "#008F11",
+        "border_color": "#00FF41",
+        "chat_bg": "#000000",
+        "animation": {
+            "type": "scanline",
+            "color": "#00FF41"
+        }
+    },
+    "HereticShrimpTheme": {
+        "bg": "#2a0a2a",
+        "fg": "#f7c6e7",
+        "widget_bg": "#4a1a4a",
+        "select_bg": "#6b2b6b",
+        "button_bg": "#d66b9b",
+        "button_fg": "#ffffff",
+        "button_accent_bg": [
+            "#ff85b4",
+            "#ffffff"
+        ],
+        "bot_a_color": "#ff85b4",
+        "bot_b_color": "#b00020",
+        "system_color": "#c19cd9",
+        "human_color": "#ffffff",
+        "code_bg": "#3a103c",
+        "code_fg": "#f7c6e7",
+        "success_fg": "#b7e8b9",
+        "error_fg": "#ff85b4",
+        "timestamp_color": "#c19cd9",
+        "border_color": "#6b2b6b",
+        "  animation": {
+            "type": "heretic_shrimp_pulse",
+            "color": "#ff85b4"
+        }
+    },
+    "Hot Topic Havoc": {
+        "bg": "#1a0000",
+        "fg": "#ff0000",
+        "widget_bg": "#330000",
+        "select_bg": "#4d0000",
+        "button_bg": "#c0c0c0",
+        "button_fg": "#000000",
+        "button_accent_bg": [
+            "#ff0000",
+            "#ffffff"
+        ],
+        "bot_a_color": "#ff3333",
+        "bot_b_color": "#c0c0c0",
+        "system_color": "#808080",
+        "human_color": "#ffffff",
+        "code_bg": "#0d0000",
+        "code_fg": "#ff0000",
+        "success_fg": "#00ff00",
+        "error_fg": "#ffff00",
+        "timestamp_color": "#808080",
+        "border_color": "#ff0000",
+        "chat_bg": "#100000",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Industrial Incubus": {
+        "bg": "#0a0a0a",
+        "fg": "#a0a0a0",
+        "widget_bg": "#2a2a2a",
+        "select_bg": "#b22222",
+        "button_bg": "#a0a0a0",
+        "button_fg": "#000000",
+        "button_accent_bg": [
+            "#b22222",
+            "#ffffff"
+        ],
+        "bot_a_color": "#dc143c",
+        "bot_b_color": "#c0c0c0",
+        "system_color": "#696969",
+        "human_color": "#ffffff",
+        "code_bg": "#000000",
+        "code_fg": "#d3d3d3",
+        "success_fg": "#32cd32",
+        "error_fg": "#ff4500",
+        "timestamp_color": "#696969",
+        "border_color": "#b22222",
+        "chat_bg": "#050505",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Inquisitors Altar": {
+        "bg": "#1a1a2a",
+        "fg": "#e0e1e6",
+        "widget_bg": "#2a2b3a",
+        "select_bg": "#4a4b5a",
+        "button_bg": "#c0392b",
+        "button_fg": "#ffffff",
+        "button_accent_bg": [
+            "#e74c3c",
+            "#ffffff"
+        ],
+        "bot_a_color": "#e74c3c",
+        "bot_b_color": "#f1c40f",
+        "system_color": "#95a5a6",
+        "human_color": "#ffffff",
+        "code_bg": "#0f0f1a",
+        "code_fg": "#e0e1e6",
+        "success_fg": "#2ecc71",
+        "error_fg": "#e74c3c",
+        "timestamp_color": "#7f8c8d",
+        "border_color": "#c0392b",
+        "chat_bg": "#151522",
+        "animation": {
+            "type": "pulse",
+            "color": "#e74c3c"
+        }
+    },
+    "Live Laugh Love": {
+        "bg": "#fdf5e6",
+        "fg": "#5d7a7b",
+        "widget_bg": "#ffffff",
+        "select_bg": "#e0eee0",
+        "button_bg": "#e5a3ad",
+        "button_fg": "#ffffff",
+        "button_accent_bg": [
+            "#87CEEB",
+            "#5d7a7b"
+        ],
+        "bot_a_color": "#87CEEB",
+        "bot_b_color": "#e5a3ad",
+        "system_color": "#b0c4de",
+        "human_color": "#5d7a7b",
+        "code_bg": "#f5f5f5",
+        "code_fg": "#333333",
+        "success_fg": "#90ee90",
+        "error_fg": "#ffb6c1",
+        "timestamp_color": "#a9a9a9",
+        "border_color": "#d3d3d3",
+        "chat_bg": "#faf0e6",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Matrix Misanthrope": {
+        "bg": "#000000",
+        "fg": "#00ff00",
+        "widget_bg": "#001a00",
+        "select_bg": "#003300",
+        "button_bg": "#00ff00",
+        "button_fg": "#000000",
+        "button_accent_bg": [
+            "#008000",
+            "#ffffff"
+        ],
+        "bot_a_color": "#33ff33",
+        "bot_b_color": "#66ff66",
+        "system_color": "#008000",
+        "human_color": "#ffffff",
+        "code_bg": "#000d00",
+        "code_fg": "#ffffff",
+        "success_fg": "#adff2f",
+        "error_fg": "#ff0000",
+        "timestamp_color": "#008000",
+        "border_color": "#00ff00",
+        "chat_bg": "#000500",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Minion Mayhem": {
+        "bg": "#f7d000",
+        "fg": "#006eac",
+        "widget_bg": "#006eac",
+        "select_bg": "#6a6a6a",
+        "button_bg": "#006eac",
+        "button_fg": "#f7d000",
+        "button_accent_bg": [
+            "#6a6a6a",
+            "#ffffff"
+        ],
+        "bot_a_color": "#005a8d",
+        "bot_b_color": "#006eac",
+        "system_color": "#444444",
+        "human_color": "#000000",
+        "code_bg": "#e0e0e0",
+        "code_fg": "#000000",
+        "success_fg": "#008000",
+        "error_fg": "#c70000",
+        "timestamp_color": "#5a5a5a",
+        "border_color": "#6a6a6a",
+        "chat_bg": "#f0c200",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "MLG Pro Gamer": {
+        "bg": "#000000",
+        "fg": "#00ff00",
+        "widget_bg": "#1a1a1a",
+        "select_bg": "#ff8c00",
+        "button_bg": "#00ff00",
+        "button_fg": "#000000",
+        "button_accent_bg": [
+            "#ff8c00",
+            "#ffffff"
+        ],
+        "bot_a_color": "#00ff00",
+        "bot_b_color": "#ff4500",
+        "system_color": "#888888",
+        "human_color": "#ffffff",
+        "code_bg": "#0d0d0d",
+        "code_fg": "#00ff00",
+        "success_fg": "#00ff00",
+        "error_fg": "#ff0000",
+        "timestamp_color": "#888888",
+        "border_color": "#ff8c00",
+        "chat_bg": "#050505",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Monokai Pro": {
+        "bg": "#2D2A2E",
+        "fg": "#FCFCFA",
+        "widget_bg": "#403E41",
+        "select_bg": "#5B595C",
+        "button_bg": "#FF6188",
+        "button_fg": "#2D2A2E",
+        "button_accent_bg": [
+            "#FF6188",
+            "#A9DC76"
+        ],
+        "bot_a_color": "#A9DC76",
+        "bot_b_color": "#78DCE8",
+        "system_color": "#939293",
+        "human_color": "#FCFCFA",
+        "code_bg": "#333034",
+        "code_fg": "#FCFCFA",
+        "success_fg": "#A9DC76",
+        "error_fg": "#FF6188",
+        "timestamp_color": "#939293",
+        "border_color": "#5B595C",
+        "chat_bg": "#282529",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Penitent Flesh": {
+        "bg": "#4c2a4e",
+        "fg": "#f2d7ee",
+        "widget_bg": "#6e4570",
+        "select_bg": "#8f6092",
+        "button_bg": "#c76b98",
+        "button_fg": "#ffffff",
+        "button_accent_bg": [
+            "#e082b4",
+            "#ffffff"
+        ],
+        "bot_a_color": "#e082b4",
+        "bot_b_color": "#800020",
+        "system_color": "#b19cd9",
+        "human_color": "#ffffff",
+        "code_bg": "#3a203c",
+        "code_fg": "#f2d7ee",
+        "success_fg": "#a7d8a9",
+        "error_fg": "#e082b4",
+        "timestamp_color": "#b19cd9",
+        "border_color": "#8f6092",
+        "chat_bg": "#422544",
+        "animation": {
+            "type": "none"
+        }
+    },
+    "Profane Brothel": {
+        "bg": "#1c0b0b",
+        "fg": "#f0c0c0",
+        "widget_bg": "#3d1a1a",
+        "select_bg": "#5e2a2a",
+        "button_bg": "#b30000",
+        "button_fg": "#f0c0c0",
+        "button_accent_bg": [
+            "#ff4d4d"
+        ],
+        "bot_a_color": "#ff4d4d",
+        "bot_b_color": "#ffb3b3",
+        "bot_c_color": "#ffcc00",
+        "system_color": "#d3d3d3",
+        "human_color": "#ffffff",
+        "code_bg": "#0f0505",
+        "code_fg": "#f0c0c0",
+        "success_fg": "#ff4d4d",
+        "error_fg": "#ff8080",
+        "timestamp_color": "#a9a9a9",
+        "border_color": "#b30000",
+        "chat_bg": "#140808",
+        "animations": {
+            "oracle": "phallus_pulse",
+            "status": "cum_drip"
+        }
+    },
+    "Red Terminal": {
+        "bg": "#000000",
+        "fg": "#FF0000",
+        "widget_bg": "#1a0000",
+        "select_bg": "#4d0000",
+        "button_bg": "#FF0000",
+        "button_fg": "#000000",
+        "button_accent_bg": [
+            "#FF0000",
+            "#FFFFFF"
+        ],
+        "bot_a_color": "#FF3333",
+        "bot_b_color": "#CC0000",
+        "system_color": "#800000",
+        "human_color": "#FFFFFF",
+        "code_bg": "#0d0000",
+        "code_fg": "#FFFFFF",
+        "success_fg": "#00FF00",
+        "error_fg": "#FFFF00",
+        "timestamp_color": "#800000",
+        "border_color": "#FF0000",
+        "chat_bg": "#100000",
+        "animation": {
+            "type": "scanline",
+            "color": "#FF0000"
+        }
+    },
+    "Sacristy": {
+        "bg": "#2f1e14",
+        "fg": "#e0cda8",
+        "widget_bg": "#4a3321",
+        "select_bg": "#6b4f3a",
+        "button_bg": "#c8a464",
+        "button_fg": "#2f1e14",
+        "button_accent_bg": [
+            "#ffd700",
+            "#ffffff"
+        ],
+        "bot_a_color": "#ffd700",
+        "bot_b_color": "#8a795d",
+        "system_color": "#b0a18e",
+        "human_color": "#ffffff",
+        "code_bg": "#1c120c",
+        "code_fg": "#e0cda8",
+        "success_fg": "#a9c9a4",
+        "error_fg": "#d9a1a1",
+        "timestamp_color": "#8a795d",
+        "border_color": "#c8a464",
+        "chat_bg": "#251810",
+        "animation": {
+            "type": "none"
+        }
+    },
+    "Silicon Scriptorium": {
+        "bg": "#f5f5f5",
+        "fg": "#333333",
+        "widget_bg": "#ffffff",
+        "select_bg": "#e0e0e0",
+        "button_bg": "#4285f4",
+        "button_fg": "#ffffff",
+        "button_accent_bg": [
+            "#34a853",
+            "#ffffff"
+        ],
+        "bot_a_color": "#4285f4",
+        "bot_b_color": "#fbbc05",
+        "system_color": "#70757a",
+        "human_color": "#000000",
+        "code_bg": "#ffffff",
+        "code_fg": "#333333",
+        "success_fg": "#34a853",
+        "error_fg": "#ea4335",
+        "timestamp_color": "#70757a",
+        "border_color": "#dadce0",
+        "chat_bg": "#f8f9fa",
+        "animation": {
+            "type": "static"
+        }
+    },
+    "Solarized Dark": {
+        "bg": "#002b36",
+        "fg": "#839496",
+        "widget_bg": "#073642",
+        "select_bg": "#586e75",
+        "button_bg": "#268bd2",
+        "button_fg": "#ffffff",
+        "button_accent_bg": [
+            "#268bd2",
+            "#6c71c4"
+        ],
+        "bot_a_color": "#2aa198",
+        "bot_b_color": "#b58900",
+        "system_color": "#657b83",
+        "human_color": "#93a1a1",
+        "code_bg": "#073642",
+        "code_fg": "#93a1a1",
+        "success_fg": "#859900",
+        "error_fg": "#dc322f",
+        "timestamp_color": "#586e75",
+        "border_color": "#657b83",
+        "chat_bg": "#002b36",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Suburban Gothic": {
+        "bg": "#e1e2dd",
+        "fg": "#000000",
+        "widget_bg": "#c7c8c3",
+        "select_bg": "#a9aaa4",
+        "button_bg": "#4f504b",
+        "button_fg": "#ffffff",
+        "button_accent_bg": [
+            "#8a8b85",
+            "#000000"
+        ],
+        "bot_a_color": "#5e5f5a",
+        "bot_b_color": "#767772",
+        "system_color": "#8a8b85",
+        "human_color": "#000000",
+        "code_bg": "#f0f1ec",
+        "code_fg": "#000000",
+        "success_fg": "#4a5e4a",
+        "error_fg": "#7a4a4a",
+        "timestamp_color": "#8a8b85",
+        "border_color": "#a9aaa4",
+        "chat_bg": "#d9dad5",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Synthwave": {
+        "bg": "#2c1f4a",
+        "fg": "#ffffff",
+        "widget_bg": "#3e2c6b",
+        "select_bg": "#5a3e9e",
+        "button_bg": "#ff6ac1",
+        "button_fg": "#2c1f4a",
+        "button_accent_bg": [
+            "#ff6ac1",
+            "#f9a8d4"
+        ],
+        "bot_a_color": "#00f5d4",
+        "bot_b_color": "#f7b801",
+        "system_color": "#a9a9d1",
+        "human_color": "#ffffff",
+        "code_bg": "#211538",
+        "code_fg": "#ffffff",
+        "success_fg": "#70e000",
+        "error_fg": "#f94144",
+        "timestamp_color": "#a9a9d1",
+        "border_color": "#ff6ac1",
+        "chat_bg": "#261a40",
+        "animation": {
+            "type": "slide",
+            "direction": "top"
+        }
+    },
+    "Vaporwave Oracle": {
+        "bg": "#01012a",
+        "fg": "#ff71ce",
+        "widget_bg": "#1d1145",
+        "select_bg": "#ff4f81",
+        "button_bg": "#00f2ea",
+        "button_fg": "#01012a",
+        "button_accent_bg": [
+            "#ff4f81",
+            "#ffffff"
+        ],
+        "bot_a_color": "#00f2ea",
+        "bot_b_color": "#ff71ce",
+        "system_color": "#8441a5",
+        "human_color": "#ffffff",
+        "code_bg": "#100820",
+        "code_fg": "#ffffff",
+        "success_fg": "#39ff14",
+        "error_fg": "#ff073a",
+        "timestamp_color": "#8441a5",
+        "border_color": "#ff4f81",
+        "chat_bg": "#0a061f",
+        "animation": {
+            "type": "fade"
+        }
+    },
+    "Visceral Sanctum": {
+        "bg": "#2e0a1e",
+        "fg": "#f5d5e6",
+        "widget_bg": "#4a1c3a",
+        "select_bg": "#6e2a5a",
+        "button_bg": "#a64d79",
+        "button_fg": "#f5d5e6",
+        "button_accent_bg": [
+            "#d986b7"
+        ],
+        "bot_a_color": "#d986b7",
+        "bot_b_color": "#f5d5e6",
+        "bot_c_color": "#ffcc00",
+        "system_color": "#b39dbd",
+        "human_color": "#ffffff",
+        "code_bg": "#1f0715",
+        "code_fg": "#f5d5e6",
+        "success_fg": "#d986b7",
+        "error_fg": "#ff6666",
+        "timestamp_color": "#b39dbd",
+        "border_color": "#a64d79",
+        "chat_bg": "#240818",
+        "animations": {
+            "oracle": "phallus_pulse",
+            "status": "cum_drip"
+        }
+    },
+    "Void Orchid": {
+        "bg": "#0d021a",
+        "fg": "#d1b3ff",
+        "widget_bg": "#1f0f36",
+        "select_bg": "#3c136c",
+        "button_bg": "#5d3d99",
+        "button_fg": "#f0eaff",
+        "button_accent_bg": [
+            "#9d72ff"
+        ],
+        "bot_a_color": "#9d72ff",
+        "bot_b_color": "#f0eaff",
+        "bot_c_color": "#ffb3ff",
+        "system_color": "#a9a9a9",
+        "human_color": "#ffffff",
+        "code_bg": "#000000",
+        "code_fg": "#d1b3ff",
+        "success_fg": "#9d72ff",
+        "error_fg": "#ff72b6",
+        "timestamp_color": "#5d3d99",
+        "border_color": "#3c136c",
+        "chat_bg": "#140a24",
+        "animations": {
+            "oracle": "weeping_heart",
+            "status": "scanline"
+        }
+    }
+}

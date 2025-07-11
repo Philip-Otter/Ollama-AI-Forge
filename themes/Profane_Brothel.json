@@ -1,0 +1,27 @@
+{
+    "bg": "#1c0b0b",
+    "fg": "#f0c0c0",
+    "widget_bg": "#3d1a1a",
+    "select_bg": "#5e2a2a",
+    "button_bg": "#b30000",
+    "button_fg": "#f0c0c0",
+    "button_accent_bg": [
+        "#ff4d4d"
+    ],
+    "bot_a_color": "#ff4d4d",
+    "bot_b_color": "#ffb3b3",
+    "bot_c_color": "#ffcc00",
+    "system_color": "#d3d3d3",
+    "human_color": "#ffffff",
+    "code_bg": "#0f0505",
+    "code_fg": "#f0c0c0",
+    "success_fg": "#ff4d4d",
+    "error_fg": "#ff8080",
+    "timestamp_color": "#a9a9a9",
+    "border_color": "#b30000",
+    "chat_bg": "#140808",
+    "animations": {
+        "oracle": "phallus_pulse",
+        "status": "cum_drip"
+    }
+}
